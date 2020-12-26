@@ -1,0 +1,31 @@
+body {
+  font-family: "Roboto", sans-serif;
+  font-size: 1.6rem;
+  color: #1e1e20;
+}
+
+.section-header {
+  margin: 0;
+  margin-bottom: 2.4rem;
+  
+  font-family: "Giorgio Sans LCG", sans-serif;
+  font-size: 6.5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.sm-only {
+  display: none;
+
+  @include sm {
+    display: block;
+  }
+}
+
+.hide-sm {
+  @include sm {
+    display: none;
+  }
+}
+  
