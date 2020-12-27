@@ -4,56 +4,92 @@
 
     background: currentColor;
     padding: 5rem;
-
+    padding-top: 9rem;
+    &{
+        @include sm {
+            padding-top: 3.8rem;
+        }
+    }
     &__inner {
         display: flex;
         justify-content: space-between;
-        h3 {
+        @include sm{
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+    h3 {
+        margin: 0;
+        margin-bottom: 1.4rem;
+        padding: 0;
+        
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 1.4rem;
+        font-weight: 300;
+    }
+    .terms {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start; 
+        &__copyright {
             margin: 0;
-            margin-bottom: 1.4rem;
+            margin-right: 1rem;
+            margin-bottom: 1.5rem;
             padding: 0;
             
-            color: white;
+            color: rgba(255, 255, 255, 0.7);
             font-size: 1.4rem;
             font-weight: 300;
         }
-        .terms {
-            display: flex;
-            flex-direction: column;
-            align-items: left; // TODO: такого значения нет!
-            &__copyright {
-                margin: 0;
-                margin-right: 1rem;
+        &__logo {
+            img {
+                height: 2.7rem;
+            }
+        }
+        &::before {
+            background: url(../img/section7/18.svg) no-repeat center / cover;
+            content: "";
+
+            width: 2.9rem;
+            height: 2.9rem;
+            position: absolute;
+            top: 9.1rem;
+            left: 16.2%;
+            @include sm {
+                position: static;
                 margin-bottom: 1.5rem;
-                padding: 0;
-                
-                color: rgba(255, 255, 255, 0.7);
-                font-size: 1.4rem;
-                font-weight: 300;
-            }
-            &__logo {
-                img {
-                    height: 2.7rem;
-                }
             }
         }
-        .info {
-            margin-right: -26rem;
-            &__logo {
-                width: 14.8rem;
-                height: 1.8rem;
-            }
-        }
-        .partners {
-            &__logo {
-                width: 19.5rem;
-                height: 2.9rem;
-            }
+        @include sm {
+            align-items: center;
+            width: 100%;
+            margin-bottom: 4rem;
         }
     }
+    .info {
+        margin-right: -26rem;
+        @include sm {
+            margin-right: 0rem;
+        }
+
+        &__logo {
+            width: 14.8rem;
+            height: 1.8rem;
+        }
+    }
+    .partners {
+        &__logo {
+            width: 19.5rem;
+            height: 2.9rem;
+        }
+        @include sm {
+            margin-left: -10rem;
+        }
+    }
+}
     .rights {
         display: flex;
         margin-top: 4rem;
+        margin-bottom: 5rem;
         
         text-align: left;
         line-height: 2rem;
@@ -61,19 +97,10 @@
         @include sm {
             text-align: center;
         }
+        span{
+            @include sm{
+                line-height: 1.5rem;
+            }
+        }
     }
-
-    // absolute elements - start
-
-    .eighteen{
-        position: absolute;
-        top: 5.1rem;
-        left: 16.2%;
-
-        height: 2.9rem;
-    }
-
-    // absolute elements - end
 }
-
-// var(--bottom-color)
