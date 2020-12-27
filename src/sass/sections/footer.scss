@@ -1,18 +1,17 @@
-.bottom-section {
+.footer {
     position: relative;
     z-index: 1;
 
+    background: currentColor;
     padding: 5rem;
-    
-    background: var(--bottom-color) url(../img/section7/background.png) no-repeat center / cover;
 
     &__inner {
         display: flex;
         justify-content: space-between;
-        p {
+        h3 {
             margin: 0;
-            padding: 0;
             margin-bottom: 1.4rem;
+            padding: 0;
             
             color: white;
             font-size: 1.4rem;
@@ -21,19 +20,19 @@
         .terms {
             display: flex;
             flex-direction: column;
-            align-items: left;
+            align-items: left; // TODO: такого значения нет!
             &__copyright {
                 margin: 0;
-                padding: 0;
-                margin-bottom: 1.5rem;
                 margin-right: 1rem;
+                margin-bottom: 1.5rem;
+                padding: 0;
                 
                 color: rgba(255, 255, 255, 0.7);
                 font-size: 1.4rem;
                 font-weight: 300;
             }
             &__logo {
-                .colored-logo{
+                img {
                     height: 2.7rem;
                 }
             }
