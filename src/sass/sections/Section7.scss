@@ -1,0 +1,80 @@
+.bottom-section {
+    position: relative;
+    z-index: 1;
+
+    padding: 5rem;
+    
+    background: var(--bottom-color) url(../img/section7/background.png) no-repeat center / cover;
+
+    &__inner {
+        display: flex;
+        justify-content: space-between;
+        p {
+            margin: 0;
+            padding: 0;
+            margin-bottom: 1.4rem;
+            
+            color: white;
+            font-size: 1.4rem;
+            font-weight: 300;
+        }
+        .terms {
+            display: flex;
+            flex-direction: column;
+            align-items: left;
+            &__copyright {
+                margin: 0;
+                padding: 0;
+                margin-bottom: 1.5rem;
+                margin-right: 1rem;
+                
+                color: rgba(255, 255, 255, 0.7);
+                font-size: 1.4rem;
+                font-weight: 300;
+            }
+            &__logo {
+                .colored-logo{
+                    height: 2.7rem;
+                }
+            }
+        }
+        .info {
+            margin-right: -26rem;
+            &__logo {
+                width: 14.8rem;
+                height: 1.8rem;
+            }
+        }
+        .partners {
+            &__logo {
+                width: 19.5rem;
+                height: 2.9rem;
+            }
+        }
+    }
+    .rights {
+        display: flex;
+        margin-top: 4rem;
+        
+        text-align: left;
+        line-height: 2rem;
+        color: rgba(255, 255, 255, 0.4);
+        @include sm {
+            text-align: center;
+        }
+    }
+
+    // absolute elements - start
+
+    .eighteen{
+        position: absolute;
+        top: 5.1rem;
+        left: 16.2%;
+
+        height: 2.9rem;
+    }
+
+    // absolute elements - end
+}
+
+// var(--bottom-color)
