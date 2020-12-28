@@ -50,39 +50,47 @@
       }
     }
 
-  // absolute elements
-  .owl-prev, .owl-next{
-    position: absolute;
-    top: 32%;
-    z-index: 1;
-    transform:translateX(-50%);
+    // absolute elements
+    .owl-prev, .owl-next{
+      position: absolute;
+      top: 32%;
+      z-index: 1;
+      transform:translateX(-50%);
 
-    // width: 1.4rem;
-    // height: 2.5rem;
-    height: 2.5rem;
-    width: 2.5rem;
-    border: .1rem solid !important;
-    border-radius: 50% !important;
-    background: url(../img/section2/arrow-back.png) no-repeat 0.6rem center/34.6% !important;
+      height: 2.5rem;
+      width: 2.5rem;
+      border: .1rem solid !important;
+      border-radius: 50% !important;
+      background: url(../img/section2/arrow-back.png) no-repeat 0.6rem center/34.6% !important;
 
-    &:focus{
-      outline: none;
+      &:focus{
+        outline: none;
+      }
+
     }
-
-  }
-  .owl-prev{
-    left: 38%;
-    @include sm{
-      left: 19%;
-    }
-  }
-  .owl-next{
-    right: 38%;
-    transform: rotate(180deg);
+    .owl-prev{
+      left: 38%;
       @include sm{
-      right: 19%;
+        left: 19%;
+      }
     }
-  }
-  // absolute elements
+    .owl-next{
+      right: 38%;
+      transform: rotate(180deg);
+        @include sm{
+        right: 19%;
+      }
+    }
+    // absolute elements
+    .owl-dots{
+      margin-top:      1rem;
+      margin-bottom: 7.1rem;
+      display: flex;
+      text-align: center;
+      justify-content: center;
+      .owl-dot{
+        @include dot()
+      }
+    }
   }
 }
