@@ -15,7 +15,6 @@ $('a[href^="#"]').click(function (e) {
 const $formSlider = $(".form-steps");
 
 function onFormSubmit() {
-  console.log("Submit!");
   $formSlider.trigger("next.owl.carousel");
 }
 
@@ -119,4 +118,129 @@ $(document).on('click', '.gallery .owl-item > *', function () {
   for (let i = 0; i < len; i++) {
     $gallery.trigger('next.owl.carousel', [speed]);
   }
+});
+
+// Школы
+
+const $schoolSlider = $(".schools");
+
+function initSchoolSlider() {
+  $schoolSlider
+    .addClass("owl-carousel")
+    .owlCarousel({
+      loop:   false,
+      nav:    true,
+      dots:   true,
+      items:  1,
+      margin: 1,
+      // autoHeight: true,
+
+      responsive: {
+        0: {
+          mouseDrag: true,
+          touchDrag: true,
+        },
+        768: {
+          mouseDrag: false,
+          touchDrag: false,
+        }
+      }
+    });
+}
+
+initSchoolSlider();
+
+const $geographyPopup = $(".js-geography-popup");
+function openGeographyPopup(title, content) {
+  $geographyPopup.addClass("visible");
+  $geographyPopup.find(".section4-popup__title").html(title);
+  $geographyPopup.find(".section4-popup__content").html(content);
+}
+
+function closeGeographyPopup() {
+  $geographyPopup.removeClass("visible")
+}
+
+$(".js-geography-popup-close").click(closeGeographyPopup);
+
+$(".js-school-item-show-photos").click(function (e) {
+  const $parent = $(this).parents(".schools-item-row");
+  const title = $parent.find(".location").clone();
+  const content = $("<div>")
+    .addClass("gallery")
+    .html(
+      $parent.find(".schools-item-row-images").clone().children()
+    );
+
+  openGeographyPopup(title, content);
+});
+
+function onResize (e) {
+  const currentDevice = innerWidth > 768 ? "desktop" : "mobile";
+
+  const parent = document.querySelector(".schools");
+  if (!parent.dataset.device) {
+    parent.dataset.device = currentDevice;
+  }
+
+  if (e == null || currentDevice != parent.dataset.device) {
+    parent.dataset.device = currentDevice;
+    
+    // destroy carousel
+    $schoolSlider.trigger('destroy.owl.carousel').removeClass('owl-carousel owl-loaded');
+    $schoolSlider.find('.owl-stage-outer').children().unwrap();
+
+    const rows = Array.from(document.querySelectorAll(".schools-item-row"));
+    let chunkSize = 4;
+  
+    // Desktop
+    if (innerWidth > 768) {
+      chunkSize = 10;
+    }
+    // Mobile
+    else {
+  
+    }
+  
+    const results = [];
+  
+    while (rows.length) {
+      results.push(rows.splice(0, chunkSize));
+    }
+  
+    parent.textContent = "";
+  
+    for (let group of results) {
+      const wrapper = document.createElement("div");
+      wrapper.classList.add("schools-item");
+      for (let row of group) {
+        wrapper.appendChild(row);
+      }
+      parent.appendChild(wrapper);
+    }
+
+
+    // rebuild carousel
+    initSchoolSlider();
+  }
+}
+onResize();
+window.addEventListener("resize", onResize);
+
+
+$(".js-loc-btn").click(function (e) {
+  const ids = $(this).attr("data-referto").replace(/\s+/g, "").split(","); // string in format "id1, id2, id3"
+
+  let title = "";
+  let content = $("<div>").addClass("stack");
+  for (let id of ids) {
+    const $refer = $("#" + id);
+
+    title = $refer.find(".city").clone();
+    content.append(
+      $refer.clone().addClass("standalone")
+    );
+  }
+
+  openGeographyPopup(title, content);
 });

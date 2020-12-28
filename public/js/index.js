@@ -1,5 +1,11 @@
 "use strict";
 
+function _createForOfIteratorHelper(o, allowArrayLike) { var it; if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
 console.log('It works!');
 
 function scrollToElement(selector, callback) {
@@ -16,7 +22,6 @@ $('a[href^="#"]').click(function (e) {
 var $formSlider = $(".form-steps");
 
 function onFormSubmit() {
-  console.log("Submit!");
   $formSlider.trigger("next.owl.carousel");
 }
 
@@ -100,4 +105,131 @@ $(document).on('click', '.gallery .owl-item > *', function () {
   for (var i = 0; i < len; i++) {
     $gallery.trigger('next.owl.carousel', [speed]);
   }
+}); // Школы
+
+var $schoolSlider = $(".schools");
+
+function initSchoolSlider() {
+  $schoolSlider.addClass("owl-carousel").owlCarousel({
+    loop: false,
+    nav: true,
+    dots: true,
+    items: 1,
+    margin: 1,
+    // autoHeight: true,
+    responsive: {
+      0: {
+        mouseDrag: true,
+        touchDrag: true
+      },
+      768: {
+        mouseDrag: false,
+        touchDrag: false
+      }
+    }
+  });
+}
+
+initSchoolSlider();
+var $geographyPopup = $(".js-geography-popup");
+
+function openGeographyPopup(title, content) {
+  $geographyPopup.addClass("visible");
+  $geographyPopup.find(".section4-popup__title").html(title);
+  $geographyPopup.find(".section4-popup__content").html(content);
+}
+
+function closeGeographyPopup() {
+  $geographyPopup.removeClass("visible");
+}
+
+$(".js-geography-popup-close").click(closeGeographyPopup);
+$(".js-school-item-show-photos").click(function (e) {
+  var $parent = $(this).parents(".schools-item-row");
+  var title = $parent.find(".location").clone();
+  var content = $("<div>").addClass("gallery").html($parent.find(".schools-item-row-images").clone().children());
+  openGeographyPopup(title, content);
+});
+
+function onResize(e) {
+  var currentDevice = innerWidth > 768 ? "desktop" : "mobile";
+  var parent = document.querySelector(".schools");
+
+  if (!parent.dataset.device) {
+    parent.dataset.device = currentDevice;
+  }
+
+  if (e == null || currentDevice != parent.dataset.device) {
+    parent.dataset.device = currentDevice; // destroy carousel
+
+    $schoolSlider.trigger('destroy.owl.carousel').removeClass('owl-carousel owl-loaded');
+    $schoolSlider.find('.owl-stage-outer').children().unwrap();
+    var rows = Array.from(document.querySelectorAll(".schools-item-row"));
+    var chunkSize = 4; // Desktop
+
+    if (innerWidth > 768) {
+      chunkSize = 10;
+    } // Mobile
+    else {}
+
+    var results = [];
+
+    while (rows.length) {
+      results.push(rows.splice(0, chunkSize));
+    }
+
+    parent.textContent = "";
+
+    for (var _i = 0, _results = results; _i < _results.length; _i++) {
+      var group = _results[_i];
+      var wrapper = document.createElement("div");
+      wrapper.classList.add("schools-item");
+
+      var _iterator = _createForOfIteratorHelper(group),
+          _step;
+
+      try {
+        for (_iterator.s(); !(_step = _iterator.n()).done;) {
+          var row = _step.value;
+          wrapper.appendChild(row);
+        }
+      } catch (err) {
+        _iterator.e(err);
+      } finally {
+        _iterator.f();
+      }
+
+      parent.appendChild(wrapper);
+    } // rebuild carousel
+
+
+    initSchoolSlider();
+  }
+}
+
+onResize();
+window.addEventListener("resize", onResize);
+$(".js-loc-btn").click(function (e) {
+  var ids = $(this).attr("data-referto").replace(/\s+/g, "").split(","); // string in format "id1, id2, id3"
+
+  var title = "";
+  var content = $("<div>").addClass("stack");
+
+  var _iterator2 = _createForOfIteratorHelper(ids),
+      _step2;
+
+  try {
+    for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
+      var id = _step2.value;
+      var $refer = $("#" + id);
+      title = $refer.find(".city").clone();
+      content.append($refer.clone().addClass("standalone"));
+    }
+  } catch (err) {
+    _iterator2.e(err);
+  } finally {
+    _iterator2.f();
+  }
+
+  openGeographyPopup(title, content);
 });
