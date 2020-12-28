@@ -100,4 +100,22 @@ $(document).on('click', '.gallery .owl-item > *', function () {
   for (var i = 0; i < len; i++) {
     $gallery.trigger('next.owl.carousel', [speed]);
   }
-});
+}); // секция слайдер начало
+
+$(".owl-carousel").owlCarousel({
+  nav: true,
+  dots: true,
+  center: true,
+  margin: 225,
+  stagePadding: 30,
+  loop: true,
+  items: 3,
+  responsive: {
+    0: {
+      items: 1
+    },
+    768: {
+      items: 3
+    }
+  }
+}); // секция слайдер конец

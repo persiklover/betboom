@@ -89,19 +89,15 @@
 }
     .rights {
         display: flex;
-        margin-top: 4rem;
-        margin-bottom: 5rem;
+        margin-top:    4rem;
+        margin-bottom: 4rem;
         
         text-align: left;
         line-height: 2rem;
         color: rgba(255, 255, 255, 0.4);
         @include sm {
             text-align: center;
-        }
-        span{
-            @include sm{
-                line-height: 1.5rem;
-            }
+            margin-bottom: 0rem
         }
     }
 }
