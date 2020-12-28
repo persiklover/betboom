@@ -4,10 +4,10 @@
   position: relative;
   overflow: hidden;
 
-  background: var(--accent-color) url(../img/section1/section1-background.png) no-repeat center / cover;
+  background: var(--secondary-color) url(../img/section1/section1-background.png) no-repeat center / cover;
   padding-bottom: 17.25rem;
   @include sm{
-    background: var(--accent-color) url(../img/section1/background-mobile.png) no-repeat center / cover;
+    background: var(--secondary-color) url(../img/section1/background-mobile.png) no-repeat center / cover;
     background-size: 183rem;
     background-position-x: 48%;
     background-position-y: -45.5rem;
@@ -124,6 +124,7 @@
 
     width:  4.1rem;
     height: 4.1rem;
+    fill: black;
   }
   // absolute elements - end
 }

@@ -120,6 +120,35 @@ $(document).on('click', '.gallery .owl-item > *', function () {
   }
 });
 
+
+// секция слайдер начало
+
+$(".owl-carousel").owlCarousel({
+  nav: true,
+  dots: true,
+  center: true,
+
+  margin: 225,
+  stagePadding: 30,
+  loop: true,
+
+  items: 3,
+
+  responsive: {
+    0: {
+      items: 1,
+    },
+    768: {
+      items: 3,
+      mouseDrag: false,
+      touchDrag: false
+    }
+  }
+
+});
+
+// секция слайдер конец
+
 // Школы
 
 const $schoolSlider = $(".schools");
