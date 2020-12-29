@@ -2,16 +2,22 @@
   overflow: hidden;
   &__inner{
     h2 {
-      margin:  -14rem;
+      // margin:  -14rem;
       margin-top:  7.3rem;
       margin-bottom: 2rem;
     }
     .bottom-text{
+      position: absolute;
+      width: 55rem;
+      top:  52rem;
+      left: 50%;
+      transform: translateX(-50%);
+
+      margin: 0;
+
       font-size: 4.8rem;
       font-weight: 700;
       line-height: 4.8rem;
-
-      margin-top: 41.4rem;
     }
 
     .active{
@@ -21,7 +27,7 @@
     }
     .center{
       .img-item{
-        transform: translateX(-50%) scale(1.2) !important;
+        transform: translate(-50%, -50%) scale(.9) !important;
       }
       .bottom-text{
         display: block;
@@ -30,22 +36,30 @@
 
     .owl-carousel {
       .owl-stage-outer {
-        // height: 83.4rem;
+        height: 65.4rem;
         .owl-stage {
           .owl-item {
+            min-height: 53rem;
             position: relative;
             text-align: center;
             // width:  32.2rem !important;
-              .img-item{
+              .img-item {
                 margin: 0 auto;
                 position: absolute;
                 top: 4rem;
+                top:  50%;
                 left: 50%;
-                transform:translateX(-50%);
+                transform: translate(-50%, -50%) scale(.7);
 
-                width:  32.2rem !important;
-                height: 35.8rem;
+                // width:  32.2rem !important;
+                // height: 35.8rem;
                 max-width: initial;
+
+                transition: all .3s ease;
+
+                @include sm {
+                  transform: translate(-50%, -50%) scale(.6) !important;
+                }
             }
           }
         }
@@ -53,7 +67,8 @@
     }
 
     // absolute elements
-    .owl-prev, .owl-next{
+    .owl-prev,
+    .owl-next {
       position: absolute;
       top: 32%;
       z-index: 1;
@@ -72,19 +87,18 @@
     }
     .owl-prev{
       left: 50%;
-      // transform: translateX(50%);
-      margin-left: -24.7rem;
+      margin-left: -24.7rem - 2.5rem;
       @include sm{
         left: 19%;
         margin-left: -0.7rem;
       }
     }
     .owl-next{
-      margin-left: 23rem;
+      margin-left: 23rem + 2.5rem;
       left: 50%;
       transform: rotate(180deg);
       
-        @include sm{
+      @include sm{
         right: 19%;
       }
     }

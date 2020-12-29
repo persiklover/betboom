@@ -4,6 +4,10 @@ body {
   color: var(--primary-color);
 }
 
+main {
+  overflow: hidden;
+}
+
 .section-header {
   margin: 0;
   margin-bottom: 2.4rem;

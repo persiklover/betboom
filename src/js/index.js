@@ -156,7 +156,7 @@ $(".owl-carousel").owlCarousel({
   dots: true,
   center: true,
 
-  margin: 225,
+  
   stagePadding: 30,
   loop: true,
 
@@ -165,8 +165,10 @@ $(".owl-carousel").owlCarousel({
   responsive: {
     0: {
       items: 1,
+      margin: 1,
     },
     768: {
+      margin: 225,
       items: 3,
       mouseDrag: false,
       touchDrag: false

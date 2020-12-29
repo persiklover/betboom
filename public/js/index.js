@@ -139,15 +139,16 @@ $(".owl-carousel").owlCarousel({
   nav: true,
   dots: true,
   center: true,
-  margin: 225,
   stagePadding: 30,
   loop: true,
   items: 3,
   responsive: {
     0: {
-      items: 1
+      items: 1,
+      margin: 1
     },
     768: {
+      margin: 225,
       items: 3,
       mouseDrag: false,
       touchDrag: false
