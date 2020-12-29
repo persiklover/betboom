@@ -136,8 +136,12 @@ $(document).on('click', '.gallery .owl-item > *', function () {
 
   let position = $(this).data('position');
   let len = position - prevPosition;
-  if (len < 0) {
+  // console.warn(prevPosition, position, len);
+  if (len <= 0) {
     len = 7 % (7 - position) + 1;
+  }
+  if (prevPosition == position) {
+    len = 0;
   }
   console.log(prevPosition, position, len);
 

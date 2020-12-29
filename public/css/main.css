@@ -2044,6 +2044,11 @@ main {
   transition: all .3s ease;
 }
 
+.gallery .owl-item:nth-child(2n) {
+  -webkit-filter: sepia();
+          filter: sepia();
+}
+
 .gallery .owl-dot {
   position: relative;
   position: relative;

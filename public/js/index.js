@@ -121,10 +121,14 @@ var prevPosition = 0;
 $(document).on('click', '.gallery .owl-item > *', function () {
   // BUG: решить, что делать, когда position < prevPosition
   var position = $(this).data('position');
-  var len = position - prevPosition;
+  var len = position - prevPosition; // console.warn(prevPosition, position, len);
 
-  if (len < 0) {
+  if (len <= 0) {
     len = 7 % (7 - position) + 1;
+  }
+
+  if (prevPosition == position) {
+    len = 0;
   }
 
   console.log(prevPosition, position, len);
