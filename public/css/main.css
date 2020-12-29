@@ -1001,7 +1001,7 @@ main {
       flex-shrink: 0;
   position: relative;
   margin-right: .7rem;
-  background: url(../img/round_empty.svg) no-repeat center/90% !important;
+  background: url(../img/round_empty.svg) no-repeat center/100% !important;
   width: 1.5rem;
   height: 1.5rem;
   background-image: url(../img/round_empty_white.svg) !important;
@@ -1482,7 +1482,7 @@ main {
       flex-shrink: 0;
   position: relative;
   margin-right: .7rem;
-  background: url(../img/round_empty.svg) no-repeat center/90% !important;
+  background: url(../img/round_empty.svg) no-repeat center/100% !important;
   width: 1.5rem;
   height: 1.5rem;
 }
@@ -2079,7 +2079,7 @@ main {
       flex-shrink: 0;
   position: relative;
   margin-right: .7rem;
-  background: url(../img/round_empty.svg) no-repeat center/90% !important;
+  background: url(../img/round_empty.svg) no-repeat center/100% !important;
   width: 1.5rem;
   height: 1.5rem;
 }
