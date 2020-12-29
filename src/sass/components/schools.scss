@@ -111,6 +111,10 @@
 
       &__photos-btn {
         color: inherit;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
         svg {
           width:  5.2rem !important;
           height: 3.9rem;

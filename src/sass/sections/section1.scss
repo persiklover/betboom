@@ -1,5 +1,3 @@
-
-
 .section1 {
   position: relative;
   overflow: hidden;
@@ -95,9 +93,9 @@
 
     @include no-select();
 
-    @include sm{
+    @include sm {
       left: -16.8rem;
-      top: 3.4rem;
+      top:    3.4rem;
     }
   }
 
@@ -112,7 +110,7 @@
 
     @include sm{
       right: -24.4rem;
-      top: 10rem;
+      top:      10rem;
     }
   }
 

@@ -997,11 +997,13 @@ main {
 
 .schools .owl-dot {
   position: relative;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
   position: relative;
   margin-right: .7rem;
-  background: url(../img/round_empty.svg) no-repeat center/contain !important;
-  width: 1.4rem;
-  height: 1.4rem;
+  background: url(../img/round_empty.svg) no-repeat center/90% !important;
+  width: 1.5rem;
+  height: 1.5rem;
   background-image: url(../img/round_empty_white.svg) !important;
 }
 
@@ -1104,6 +1106,15 @@ main {
 
 .schools-item-row__photos-btn {
   color: inherit;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .schools-item-row__photos-btn svg {
@@ -1454,11 +1465,13 @@ main {
 }
 
 .section2__inner .owl-dots .owl-dot {
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
   position: relative;
   margin-right: .7rem;
-  background: url(../img/round_empty.svg) no-repeat center/contain !important;
-  width: 1.4rem;
-  height: 1.4rem;
+  background: url(../img/round_empty.svg) no-repeat center/90% !important;
+  width: 1.5rem;
+  height: 1.5rem;
 }
 
 .section2__inner .owl-dots .owl-dot.active {
@@ -1684,8 +1697,11 @@ main {
 }
 
 .form-step-content5__icon {
+  background: url(../img/section3/done.svg) no-repeat center/3.2rem;
   margin: 0 auto;
   margin-bottom: 10rem;
+  border: .4rem solid currentColor;
+  border-radius: 50%;
   -ms-flex-negative: 0;
       flex-shrink: 0;
   width: 7.4rem !important;
@@ -1735,8 +1751,8 @@ main {
           transform: translateY(-50%);
   width: 2.5rem;
   height: 2.5rem;
-  background: #f8e800 url(../img/section3/checkbox.png) no-repeat center/45%;
-  background: var(--secondary-color) url(../img/section3/checkbox.png) no-repeat center/45%;
+  background: #f8e800 url(../img/section3/done.svg) no-repeat center/45%;
+  background: var(--secondary-color) url(../img/section3/done.svg) no-repeat center/45%;
   border-radius: 50%;
 }
 
@@ -2044,18 +2060,15 @@ main {
   transition: all .3s ease;
 }
 
-.gallery .owl-item:nth-child(2n) {
-  -webkit-filter: sepia();
-          filter: sepia();
-}
-
 .gallery .owl-dot {
   position: relative;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
   position: relative;
   margin-right: .7rem;
-  background: url(../img/round_empty.svg) no-repeat center/contain !important;
-  width: 1.4rem;
-  height: 1.4rem;
+  background: url(../img/round_empty.svg) no-repeat center/90% !important;
+  width: 1.5rem;
+  height: 1.5rem;
 }
 
 .gallery .owl-dot.active {
