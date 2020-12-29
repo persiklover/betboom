@@ -32,20 +32,18 @@
 =dot
   position: relative
   margin-right: .7rem
-  background: none !important
-  width: 1.4rem
+  background: url(../img/round_empty.svg) no-repeat center / contain !important
+  width:  1.4rem
   height: 1.4rem
-  border: .1rem solid currentColor !important
-  border-radius: 50%
-  &.active::before
-    content: ''
-    position: absolute
-    left: 50%
-    top: 50%
-    transform: translate(-50%, -50%)
-    display: block
-    background: currentColor
-    width: .7rem
-    height: .7rem
-    border-radius: 50%
+
+  &.active
+    background-image: url(../img/round_filled.svg) !important
+
+=dot-white
+  +dot
+  background-image: url(../img/round_empty_white.svg) !important
+
+  &.active
+    background-image: url(../img/round_filled_white.svg) !important
+
 

@@ -39,31 +39,10 @@
     &-dot {
       position: relative;
 
-      margin-right: .7rem;
-      background: var(--primary-color) !important;
-      width:  1.4rem;
-      height: 1.4rem;
-      border: .1rem solid currentColor !important;
-      border-radius: 50%;
+      @include dot-white();
 
       &:last-child {
         margin-right: 0;
-      }
-
-      &.active {
-        &::before {
-          content: '';
-
-          position: absolute;
-          left: 50%;
-          top:  50%;
-          transform: translate(-50%, -50%);
-
-          background: currentColor;
-          width:  75%;
-          height: 75%;
-          border-radius: 50%;
-        }
       }
 
       &s {

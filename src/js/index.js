@@ -12,9 +12,34 @@ $('a[href^="#"]').click(function (e) {
 });
 
 // Подать заявку
+
+const fileinputs = document.querySelectorAll('input[type="file"]');
+Array.prototype.forEach.call(fileinputs, function (input) {
+  var label = input.nextElementSibling;
+  var labelVal = label.innerHTML;
+
+  input.addEventListener('change', function (e) {
+    var fileName = '';
+    if (this.files && this.files.length > 1) {
+      fileName = (this.getAttribute('data-multiple-caption') || '').replace('{count}', this.files.length);
+    }
+    else {
+      fileName = e.target.value.split('\\').pop();
+    }
+
+    let text = labelVal;
+    if (fileName) {
+      text = fileName;
+    }
+
+    label.innerHTML = text;
+  });
+});
+
 const $formSlider = $(".form-steps");
 
 function onFormSubmit() {
+  console.log('Submit!');
   $formSlider.trigger("next.owl.carousel");
 }
 
@@ -39,11 +64,11 @@ function onFromSliderChanged(event) {
 $formSlider
   .addClass("owl-carousel")
   .owlCarousel({
-    loop: false,
-    nav: false,
-    dots: true,
-    items: 1,
-    margin: 1,
+    loop:   false,
+    nav:    false,
+    dots:   true,
+    items:  1,
+    margin: 10,
     mouseDrag: false,
     touchDrag: false,
     onInitialized: onFromSliderChanged,
@@ -109,14 +134,17 @@ $(document).on('click', '.gallery .owl-item > *', function () {
 
   // BUG: решить, что делать, когда position < prevPosition
 
-  const speed = 300;
-  const position = $(this).data('position');
-  const len = position - prevPosition;
+  let position = $(this).data('position');
+  let len = position - prevPosition;
+  if (len < 0) {
+    len = 7 % (7 - position) + 1;
+  }
+  console.log(prevPosition, position, len);
 
   prevPosition = position;
 
   for (let i = 0; i < len; i++) {
-    $gallery.trigger('next.owl.carousel', [speed]);
+    $gallery.trigger('next.owl.carousel', [300]);
   }
 });
 
