@@ -9,7 +9,7 @@
     .bottom-text{
       position: absolute;
       width: 55rem;
-      top:  52rem;
+      top: 40rem;
       left: 50%;
       transform: translateX(-50%);
 
@@ -39,27 +39,33 @@
         height: 65.4rem;
         .owl-stage {
           .owl-item {
-            min-height: 53rem;
+            min-height: 38rem;
             position: relative;
             text-align: center;
             // width:  32.2rem !important;
-              .img-item {
-                margin: 0 auto;
-                position: absolute;
-                top: 4rem;
-                top:  50%;
-                left: 50%;
-                transform: translate(-50%, -50%) scale(.7);
+            .img-item {
+              margin: 0 auto;
+              position: absolute;
+              top: 4rem;
+              top:  50%;
+              left: 50%;
+              transform: translate(-50%, -50%) scale(.7);
+              pointer-events:none;
 
-                // width:  32.2rem !important;
-                // height: 35.8rem;
-                max-width: initial;
+              // width:  32.2rem !important;
+              // height: 35.8rem;
+              max-width: initial;
+              width: auto !important;
+              max-height: 40rem;
 
-                transition: all .3s ease;
+              transition: all .3s ease;
 
-                @include sm {
-                  transform: translate(-50%, -50%) scale(.6) !important;
-                }
+              @include sm {
+                transform: translate(-50%, -50%) scale(.6) !important;
+                pointer-events:all;
+
+                max-height: 55rem;
+              }
             }
           }
         }
@@ -70,7 +76,7 @@
     .owl-prev,
     .owl-next {
       position: absolute;
-      top: 32%;
+      top: 28%;
       z-index: 1;
       transform:translateX(-50%);
 
@@ -83,14 +89,18 @@
       &:focus{
         outline: none;
       }
-
+      & {
+        @include sm {
+          top: 28%;
+        }
+      }
     }
     .owl-prev{
       left: 50%;
       margin-left: -24.7rem - 2.5rem;
       @include sm{
         left: 19%;
-        margin-left: -0.7rem;
+        margin-left: 1.7rem;
       }
     }
     .owl-next{
@@ -100,11 +110,12 @@
       
       @include sm{
         right: 19%;
+        margin-left: 20.5rem;
       }
     }
     // absolute elements
     .owl-dots{
-      margin-top:      1rem;
+      margin-top:    -13rem !important;
       margin-bottom: 7.1rem;
       display: flex;
       text-align: center;
