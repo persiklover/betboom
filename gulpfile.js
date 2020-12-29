@@ -22,7 +22,6 @@ const html = () => {
 
 const css = () => {
   return gulp.src('src/sass/main.s[ac]ss')
-    .pipe(sourcemaps.init())
     .pipe(sass({ outputStyle: 'expanded' }))
     .pipe(postcss([
       require('postcss-custom-properties')()
@@ -31,7 +30,6 @@ const css = () => {
       overrideBrowserslist: ['last 4 versions']
     }))
     // .pipe(minifyCSS())
-    .pipe(sourcemaps.write())
     .pipe(gulp.dest('public/css'))
     .pipe(sync.stream({ match: '**/*.css' }))
 };
