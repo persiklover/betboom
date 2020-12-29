@@ -1002,9 +1002,16 @@ main {
   position: relative;
   margin-right: .7rem;
   background: url(../img/round_empty.svg) no-repeat center/contain !important;
-  width: 1.5rem;
-  height: 1.5rem;
+  width: 1.4rem;
+  height: 1.4rem;
   background-image: url(../img/round_empty_white.svg) !important;
+}
+
+@media (max-width: 768px) {
+  .schools .owl-dot {
+    width: 2rem;
+    height: 2rem;
+  }
 }
 
 .schools .owl-dot.active {
@@ -1484,8 +1491,15 @@ main {
   position: relative;
   margin-right: .7rem;
   background: url(../img/round_empty.svg) no-repeat center/contain !important;
-  width: 1.5rem;
-  height: 1.5rem;
+  width: 1.4rem;
+  height: 1.4rem;
+}
+
+@media (max-width: 768px) {
+  .section2__inner .owl-dots .owl-dot {
+    width: 2rem;
+    height: 2rem;
+  }
 }
 
 .section2__inner .owl-dots .owl-dot.active {
@@ -2081,8 +2095,15 @@ main {
   position: relative;
   margin-right: .7rem;
   background: url(../img/round_empty.svg) no-repeat center/contain !important;
-  width: 1.5rem;
-  height: 1.5rem;
+  width: 1.4rem;
+  height: 1.4rem;
+}
+
+@media (max-width: 768px) {
+  .gallery .owl-dot {
+    width: 2rem;
+    height: 2rem;
+  }
 }
 
 .gallery .owl-dot.active {
