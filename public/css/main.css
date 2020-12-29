@@ -1348,7 +1348,7 @@ main {
 .section2__inner .bottom-text {
   position: absolute;
   width: 55rem;
-  top: 52rem;
+  top: 40rem;
   left: 50%;
   -webkit-transform: translateX(-50%);
       -ms-transform: translateX(-50%);
@@ -1378,7 +1378,7 @@ main {
 }
 
 .section2__inner .owl-carousel .owl-stage-outer .owl-stage .owl-item {
-  min-height: 53rem;
+  min-height: 38rem;
   position: relative;
   text-align: center;
 }
@@ -1392,7 +1392,10 @@ main {
   -webkit-transform: translate(-50%, -50%) scale(0.7);
       -ms-transform: translate(-50%, -50%) scale(0.7);
           transform: translate(-50%, -50%) scale(0.7);
+  pointer-events: none;
   max-width: initial;
+  width: auto !important;
+  max-height: 40rem;
   -webkit-transition: all .3s ease;
   -o-transition: all .3s ease;
   transition: all .3s ease;
@@ -1403,13 +1406,15 @@ main {
     -webkit-transform: translate(-50%, -50%) scale(0.6) !important;
         -ms-transform: translate(-50%, -50%) scale(0.6) !important;
             transform: translate(-50%, -50%) scale(0.6) !important;
+    pointer-events: all;
+    max-height: 55rem;
   }
 }
 
 .section2__inner .owl-prev,
 .section2__inner .owl-next {
   position: absolute;
-  top: 32%;
+  top: 28%;
   z-index: 1;
   -webkit-transform: translateX(-50%);
       -ms-transform: translateX(-50%);
@@ -1426,6 +1431,13 @@ main {
   outline: none;
 }
 
+@media (max-width: 768px) {
+  .section2__inner .owl-prev,
+  .section2__inner .owl-next {
+    top: 28%;
+  }
+}
+
 .section2__inner .owl-prev {
   left: 50%;
   margin-left: -27.2rem;
@@ -1434,7 +1446,7 @@ main {
 @media (max-width: 768px) {
   .section2__inner .owl-prev {
     left: 19%;
-    margin-left: -0.7rem;
+    margin-left: 1.7rem;
   }
 }
 
@@ -1449,11 +1461,12 @@ main {
 @media (max-width: 768px) {
   .section2__inner .owl-next {
     right: 19%;
+    margin-left: 20.5rem;
   }
 }
 
 .section2__inner .owl-dots {
-  margin-top: 1rem;
+  margin-top: -13rem !important;
   margin-bottom: 7.1rem;
   display: -webkit-box;
   display: -ms-flexbox;
