@@ -10,10 +10,6 @@
 
     &-item {
       transition: all .3s ease;
-      
-      &:nth-child(2n) {
-        filter: sepia();
-      }
     }
 
     &-dot {
