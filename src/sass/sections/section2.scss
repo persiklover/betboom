@@ -20,6 +20,9 @@
       }
     }
     .center{
+      .img-item{
+        transform: translateX(-50%) scale(1.2) !important;
+      }
       .bottom-text{
         display: block;
       }
@@ -36,10 +39,9 @@
               .img-item{
                 margin: 0 auto;
                 position: absolute;
-                top: 2rem;
+                top: 4rem;
                 left: 50%;
                 transform:translateX(-50%);
-
 
                 width:  32.2rem !important;
                 height: 35.8rem;
@@ -57,11 +59,11 @@
       z-index: 1;
       transform:translateX(-50%);
 
-      height: 2.5rem;
-      width: 2.5rem;
+      height: 3.8rem;
+      width:  3.8rem;
       border: .1rem solid !important;
       border-radius: 50% !important;
-      background: url(../img/section2/arrow-back.png) no-repeat 0.6rem center/34.6% !important;
+      background: url(../img/section2/arrow-back.png) no-repeat 0.95rem center/35% !important;
 
       &:focus{
         outline: none;
@@ -69,14 +71,19 @@
 
     }
     .owl-prev{
-      left: 38%;
+      left: 50%;
+      // transform: translateX(50%);
+      margin-left: -24.7rem;
       @include sm{
         left: 19%;
+        margin-left: -0.7rem;
       }
     }
     .owl-next{
-      right: 38%;
+      margin-left: 23rem;
+      left: 50%;
       transform: rotate(180deg);
+      
         @include sm{
         right: 19%;
       }
